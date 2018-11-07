@@ -14,10 +14,10 @@ import com.small.service.TestService;
 
 @SmallController
 public class TestController {
-	@SmallAutowired
+	@SmallAutowired("testService")
 	private TestService testService;
 	@SmallRequestMapping("/getUser")
-	public void getName(HttpServletRequest request,HttpServletResponse response,@SmallRequestParam("name") String n){
+	public void getName(@SmallRequestParam("name") String n,HttpServletRequest request,HttpServletResponse response){
 		PrintWriter printWriter;
 		try {
 			printWriter = response.getWriter();
